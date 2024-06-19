@@ -1,0 +1,33 @@
+{
+    "SOURCE_PATH": "services-backend/core",
+    "INCLUDE_FILES": [
+        "*.cs"
+    ],
+    "EXCLUDE_FILES": [
+        "*.user",
+        "*.tmp",
+        "coverage.xml"
+    ],
+    "INCLUDE_FOLDERS": [
+    ],
+    "EXCLUDE_FOLDERS": [
+        "OMSNIC.Services.Core.Messages.AzureSB",
+        "bin",
+        "obj",
+        "coverage.report",
+        ".mono",
+        ".git",
+        "TestResults"
+    ],
+    "INCLUDE_IF_NOT_EXISTS_FILES": [
+        "*.csproj",
+        "*.code-workspace",
+        "*.sln"
+    ],
+    "REPLACE_NAMES": {
+        "OMSNIC": "WIP"
+    },
+    "REPLACE_CONTENT": {
+        "OMSNIC": "WIP"
+    }
+}
