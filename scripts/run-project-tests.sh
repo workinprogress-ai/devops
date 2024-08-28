@@ -35,7 +35,15 @@ if [[ "$coverage_target" != "0" && "$coverage_target" != "-" ]]; then
         failed=1
     fi;
 
-    dotnet ~/.nuget/packages/reportgenerator/5.3.6/tools/net8.0/ReportGenerator.dll -reports:./coverage.xml -targetdir:./coverage.report
+    reportgenerator_path=$(find ~/.nuget/packages/reportgenerator/ -maxdepth 1 -type d | sort -V | tail -n 1)
+    reportgenerator_dll="$reportgenerator_path/tools/net8.0/ReportGenerator.dll"
+
+    if [[ ! -f "$reportgenerator_dll" ]]; then
+        echo "ReportGenerator not found or DLL missing."
+        exit 1
+    fi
+
+    dotnet "$reportgenerator_dll" -reports:./coverage.xml -targetdir:./coverage.report
     cd $curr_folder;
 
     if [[ -n "$failed" ]]; then
